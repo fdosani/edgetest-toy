@@ -15,5 +15,5 @@ jobs:
         with:
           edgetest-flags: '--config=pyproject.toml --export'
           base-branch: 'main'
-          skip-pr: 'true'
+          skip-pr: 'false'
           python-version: '3.11'
