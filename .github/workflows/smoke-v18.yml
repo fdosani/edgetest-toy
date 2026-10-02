@@ -1,0 +1,19 @@
+name: Smoke test run-edgetest-action v1.8
+on:
+  push:
+    branches: [smoke/v18-test]
+  workflow_dispatch:
+jobs:
+  edgetest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: edgetest-dev/run-edgetest-action@2d1f2f3d924daf633648dcbea6fae2878af95176  # v1.8
+        with:
+          edgetest-flags: '--config=pyproject.toml --export'
+          base-branch: 'main'
+          skip-pr: 'true'
+          python-version: '3.11'
